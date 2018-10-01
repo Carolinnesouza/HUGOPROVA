@@ -13,6 +13,10 @@ import Entidade.Professor;
 import Util.TransacionalCdi;
 
 public class ProfessorServico implements Serializable, Service<Professor> {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6572655474897218828L;
 	@Inject
 	private ProfessorDAO userDAO;
 

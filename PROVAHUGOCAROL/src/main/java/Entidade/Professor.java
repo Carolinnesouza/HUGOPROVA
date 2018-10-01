@@ -10,6 +10,11 @@ import javax.persistence.SequenceGenerator;
 public class Professor implements Identificavel {
 	private String email;
 	private String senha;
+	private String nome;
+	@Id
+	@GeneratedValue(generator = "professor_seq", strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "professor_seq")
+	private Long id;
 
 	public String getEmail() {
 		return email;
@@ -26,12 +31,6 @@ public class Professor implements Identificavel {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-
-	private String nome;
-	@Id
-	@GeneratedValue(generator = "professor_seq", strategy = GenerationType.SEQUENCE)
-	@SequenceGenerator(name = "professor_seq")
-	private Long id;
 
 	public String getNome() {
 		return nome;

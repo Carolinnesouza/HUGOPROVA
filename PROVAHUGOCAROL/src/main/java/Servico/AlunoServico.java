@@ -20,21 +20,13 @@ import Util.TransacionalCdi;
 	@ApplicationScoped
 	public class AlunoServico implements Serializable, Service<Aluno> {
 
-		/**
-		 * 
-		 */
+		
 		private static final long serialVersionUID = -7803325791425670859L;
 
 		@Inject
 		private AlunoDAO userDAO;
 
-		/*
-		 * (non-Javadoc)
-		 * 
-		 * @see
-		 * br.edu.ifpb.esperanca.daw2.services.Service#save(br.edu.ifpb.esperanca.daw2.
-		 * ifoto.entities.Usuario)
-		 */
+	
 		@Override
 		@TransacionalCdi
 		public void save(Aluno user) {

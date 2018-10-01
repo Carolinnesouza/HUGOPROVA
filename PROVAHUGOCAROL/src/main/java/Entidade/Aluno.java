@@ -7,9 +7,6 @@ import javax.persistence.SequenceGenerator;
 
 @Entity
 public class Aluno implements Identificavel {
-
-
-
 		
 		private String nome;
 		@Id
