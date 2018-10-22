@@ -4,10 +4,15 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="PROVAHUGOCAROL">
 	
+	<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<non-jta-data-source>java:/PROVAHUGODS</non-jta-data-source>
+	
 		<class>Entidade.Aluno</class>
 		<class>Entidade.Disciplina</class>
 		<class>Entidade.Professor</class>
 		<class>Entidade.Turma</class>
+		
+		
 		<properties>
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.show_sql" value="true" />

@@ -17,4 +17,33 @@
 		<param-name>primefaces.THEME</param-name>
 		<param-value>casablanca</param-value>
 	</context-param>
+<login-config>
+		<auth-method>FORM</auth-method>
+		<realm-name>PROVAHUGOCAROLJdbcRealm</realm-name>
+		<form-login-config>
+			<form-login-page>/pages/public/loginAlunoProf.xhtml</form-login-page>
+			<form-error-page>/pages/public/loginAlunoProf.xhtml?error=true</form-error-page>
+		</form-login-config>
+	</login-config>
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Área protegida</web-resource-name>
+			<description />
+			<url-pattern>/pages/private/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<description />
+			<role-name>ADMIN</role-name>
+			<role-name>OUTROS</role-name>
+		</auth-constraint>
+		<user-data-constraint>
+			<transport-guarantee>NONE</transport-guarantee>
+		</user-data-constraint>
+	</security-constraint>
+	<security-role>
+		<role-name>ADMIN</role-name>
+	</security-role>
+	<security-role>
+		<role-name>OUTROS</role-name>
+	</security-role>
 </web-app>

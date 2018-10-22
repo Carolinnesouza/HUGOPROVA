@@ -1,59 +1,53 @@
 package Servico;
 
-	
-	import java.io.Serializable;
-	import java.io.UnsupportedEncodingException;
-	import java.security.MessageDigest;
-	import java.security.NoSuchAlgorithmException;
-	import java.util.Base64;
-	import java.util.List;
+import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
+import java.util.List;
 
-	import javax.enterprise.context.ApplicationScoped;
-	import javax.inject.Inject;
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 
 import DAO.AlunoDAO;
 import Entidade.Aluno;
 import Util.TransacionalCdi;
 
+@ApplicationScoped
+public class AlunoServico implements Serializable, Service<Aluno> {
 
+	private static final long serialVersionUID = -7803325791425670859L;
 
-	@ApplicationScoped
-	public class AlunoServico implements Serializable, Service<Aluno> {
+	@Inject
+	private AlunoDAO userDAO;
 
-		
-		private static final long serialVersionUID = -7803325791425670859L;
+	@Override
+	@TransacionalCdi
+	public void save(Aluno user) {
+		userDAO.save(user);
+	}
 
-		@Inject
-		private AlunoDAO userDAO;
+	@Override
+	@TransacionalCdi
+	public void update(Aluno user) {
+		userDAO.update(user);
+	}
 
-	
-		@Override
-		@TransacionalCdi
-		public void save(Aluno user) {
-			userDAO.save(user);
-		}
+	@Override
+	@TransacionalCdi
+	public void remove(Aluno user) {
+		userDAO.remove(user);
+	}
 
-		@Override
-		@TransacionalCdi
-		public void update(Aluno user) {
-			userDAO.update(user);
-		}
+	@Override
+	public Aluno getByID(long userId) {
+		return userDAO.getByID(userId);
+	}
 
-		@Override
-		@TransacionalCdi
-		public void remove(Aluno user) {
-			userDAO.remove(user);
-		}
-
-	
-		@Override
-		public Aluno getByID(long userId) {
-			return userDAO.getByID(userId);
-		}
-
-		@Override
-		public List<Aluno> getAll() {
-			return userDAO.getAll();
-		}
+	@Override
+	public List<Aluno> getAll() {
+		return userDAO.getAll();
+	}
 
 }
